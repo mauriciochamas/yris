@@ -1,0 +1,30 @@
+?iris
+names(iris)
+yris <- iris
+str(yris)
+iris <- iris
+yris$newClass <- as.character(iris$Species)
+yris$newClass <- NULL
+yris$Species <- gsub("%","",yris$Species)
+yris <- na.omit(yris)
+summary(yris)
+plot(yris,col=yris$Species)
+legend(7,4.3,unique(yris$Species),col=1:length(yris$Species),pch = 1)
+par(mfrow=c(1,2))
+plot(yris$Petal.Length)
+boxplot(yris$Petal.Length~yris$Species)
+par(mfrow=c(2,2))
+for(i in 1:4)boxplot(yris[,i]~Species,data = yris,main=names(iris)[i])
+par(mfrow=c(1,1))
+hist(yris$Petal.Length[1:50])
+hist(yris$Petal.Length[-(1:50)])
+hist(yris$Petal.Length)
+hist(yris$Sepal.Length[yris$Species=="setosa"])
+plot(yris$Petal.Length[1:50])
+plot(yris$Petal.Length[-(1:50)])
+plot(yris$Petal.Length)
+table(yris$Species)
+plot(yris$Sepal.Length[yris$Species=="setosa"])
+plot(yris$Sepal.Length[yris$Species=="versicolor"])
+plot(yris$Sepal.Length[yris$Species=="virginica"])
+yris.ordered <- yris[order(yris$Sepal.Length),]
